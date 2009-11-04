@@ -25,7 +25,7 @@ Largely inspired by the XML Builder tools in Nokogiri, this library provides a s
 
     </script>
 
-This output of that mess is
+The output of that mess is
 
     <iq from="student@hth.com" to="pubsub.hth.com">
         <query xmlns="http://jabber.org/protocol/disco#items" node="root">
