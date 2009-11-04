@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script src="./lib/xml-builder.js"></script>
+        <script type="text/javascript">
+
+            var iq = xml('iq', {xmlns: "http:..."}, function() {
+                this.xml('query', {xmlns: 'http://jabber.org/protocol/disco#items', node: "root"}, function() {
+                    for(var i = 0; i < 10; i++){
+                        this.xml('item', {}, function() {
+                            this.text('item-' + i);
+                        });
+                    }
+                });
+            });
+
+            console.log(iq);
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

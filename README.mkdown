@@ -1,0 +1,40 @@
+# XML Builder #
+
+A simple chained closure method of building xml fragements in Javascript
+
+## Description ##
+
+Largely inspired by the XML Builder tools in Nokogiri, this library provides a simple and declarative means of constructing complex xml fragments with little fuss.
+
+# Using XML Builder #
+
+*./example.html*
+
+    <script src="./xml_builder.js"></script>
+    <script type="text/javascript">
+
+        var iq = xml('iq', {from: "student@hth.com", to: "pubsub.hth.com"}, function() {
+            this.xml('query', {xmlns: 'http://jabber.org/protocol/disco#items', node: "root"}, function() {
+                for(var i = 0; i < 10; i++){
+                    this.xml('item', {}, function() {
+                        this.text('item-' + i);
+                    });
+                }
+            });
+        });
+
+    </script>
+
+This output of that mess is
+
+    <iq from="student@hth.com" to="pubsub.hth.com">
+        <query xmlns="http://jabber.org/protocol/disco#items" node="root">
+            <item>item-0</item>
+            <item>item-1</item>
+            <item>item-2</item>
+            ..
+            <item>item-9</item>
+        </query
+    </iq>
+
+But as you can see, we can do some pretty neat stuff. Since all the scope of the parent node is always expressed as a code, you can use control flow inside of your declarations. Allowing you to easily filter, loop, and branch items.
