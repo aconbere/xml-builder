@@ -13,7 +13,7 @@ Screw.Unit(function() {
 
     describe("xml.build", function() {
         it("should create an xml element", function() {
-            expect(xml.build("head").tagName).to(equal, "HEAD");
+            expect(xml.build("head").tagName).to(equal, "head");
         });
 
         describe("when given an attrs hash", function() {
@@ -36,8 +36,8 @@ Screw.Unit(function() {
                     this.text("blah");
                 });
             });
-            expect(el.tagName).to(equal, "IQ");
-            expect(el.children[0].tagName).to(equal, "QUERY");
+            expect(el.tagName).to(equal, "iq");
+            expect(el.children[0].tagName).to(equal, "query");
             expect(el.children[0].textContent).to(equal, "blah");
         });
     });
